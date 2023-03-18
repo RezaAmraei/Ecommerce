@@ -1,6 +1,6 @@
 import React from "react";
 import { Product, Footer, HeroBanner, FooterBanner } from "@/componenets";
-import { client } from "@/lib/client";
+import { client } from "@/componenets/lib/client";
 const Home = ({ products, bannerData }) => {
   return (
     <>
