@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { client, urlFor } from "../../componenets/lib/client";
 import {
   AiOutlineMinus,
@@ -6,9 +6,8 @@ import {
   AiOutlineStar,
   AiFillStar,
 } from "react-icons/ai";
-
+import { useRouter } from "next/router";
 import { Product } from "@/componenets";
-
 import { useStateContext } from "@/context/StateContext";
 
 const ProductDetails = ({ product, products }) => {
@@ -19,6 +18,10 @@ const ProductDetails = ({ product, products }) => {
     onAdd(product, qty);
     setShowCart(true);
   };
+  const router = useRouter();
+
+  useEffect(() => {}, [router.query.slug]);
+
   return (
     <div>
       <div className="product-detail-container">

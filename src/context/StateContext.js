@@ -19,9 +19,9 @@ export const StateContext = ({ children }) => {
   const [qty, setQty] = useState(1);
   let foundProduct;
   let index;
+
   const onAdd = (product, quantity) => {
     const checkInCart = cartItems.find((item) => item._id === product._id);
-
     setTotalPrice(
       (prevTotalPrice) => prevTotalPrice + product.price * quantity
     );
@@ -51,28 +51,20 @@ export const StateContext = ({ children }) => {
     setCartItems(newCartItems);
   };
   const toggleCartItemQuantity = (id, value) => {
-    //Fix cart to stay in place when inc /. or dec
     foundProduct = cartItems.find((item) => item._id === id);
     index = cartItems.findIndex((foundProduct) => foundProduct._id === id);
 
     const newCartItems = cartItems.filter((item) => item._id !== id);
-    if (value === "inc") {
-      setCartItems([
-        ...newCartItems,
-        { ...foundProduct, quantity: foundProduct.quantity + 1 },
-      ]);
-      setTotalPrice((prev) => prev + foundProduct.price);
-      setTotalQuantities((prev) => prev + 1);
-    } else if (value === "dec") {
-      //LOOKS LIKE A HELPER FUNCTION CAN BE USED TO SHORTEN LINES OF CODE AND MAKE 1 BE A PARAM
-      if (foundProduct.quantity <= 1) return;
-      setCartItems([
-        ...newCartItems,
-        { ...foundProduct, quantity: foundProduct.quantity - 1 },
-      ]);
-      setTotalPrice((prev) => prev - foundProduct.price);
-      setTotalQuantities((prev) => prev - 1);
-    }
+
+    const increment = value === "inc" ? 1 : -1;
+    if (increment === -1 && foundProduct.quantity <= 1) return;
+    setCartItems([
+      ...newCartItems,
+      { ...foundProduct, quantity: foundProduct.quantity + increment },
+    ]);
+
+    setTotalPrice((prev) => prev + foundProduct.price * increment);
+    setTotalQuantities((prev) => prev + increment);
   };
 
   const incQty = () => {
