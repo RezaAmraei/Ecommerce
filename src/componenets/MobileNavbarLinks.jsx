@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dropdown } from "antd";
 import Link from "next/link";
+import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 
 const items = [
   {
@@ -26,6 +27,7 @@ const items = [
 ];
 
 const MobileNavbarLinks = () => {
+  const [toggleArrow, setToggleArrow] = useState(true);
   return (
     <div className="mobile-links-wrapper mobile-view">
       <Dropdown
@@ -36,27 +38,16 @@ const MobileNavbarLinks = () => {
         arrow={{
           pointAtCenter: true,
         }}
+        trigger={["click"]}
+        onOpenChange={() => setToggleArrow((prev) => !prev)}
       >
-        <span className="logo dropdown">Filter Products</span>
+        <span className="logo dropdown">
+          Filter Products{" "}
+          {toggleArrow ? <CaretDownOutlined /> : <CaretUpOutlined />}
+        </span>
       </Dropdown>
     </div>
   );
 };
 
 export default MobileNavbarLinks;
-
-<Dropdown
-  menu={{
-    items,
-  }}
-  placement="bottom"
-  arrow={{
-    pointAtCenter: true,
-  }}
->
-  <span>Filter Products</span>
-</Dropdown>;
-
-<div className="mobile-links-container">
-  <span className="logo filter-button">Filter Products</span>
-</div>;

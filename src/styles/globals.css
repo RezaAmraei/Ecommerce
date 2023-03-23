@@ -24,7 +24,7 @@ a {
   flex-grow: 100;
 }
 .layout {
-  padding: 10px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
 }
@@ -651,9 +651,19 @@ span.text-red {
 }
 
 .dropdown {
-  border-bottom: 1px solid grey;
+}
+
+.index-container {
+  width: 100dvw;
+  margin-left: 10px;
 }
 @media screen and (max-width: 800px) {
+  .total {
+    justify-content: space-evenly;
+  }
+  .navbar-container {
+    width: 100%;
+  }
   .logo {
     padding-top: 0px;
   }
@@ -727,7 +737,7 @@ span.text-red {
     height: 350px;
   }
   .cart-container {
-    width: 415px;
+    width: 100dvw;
     padding: 4px;
   }
   .cart-heading {
@@ -772,7 +782,9 @@ span.text-red {
     color: black;
   }
   .cart-bottom {
-    padding: 30px;
+    padding: 0px;
+    right: 0px;
+    bottom: 50px;
   }
 
   .total h3 {

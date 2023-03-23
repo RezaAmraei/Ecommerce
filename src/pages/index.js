@@ -3,7 +3,7 @@ import { Product, Footer, HeroBanner, FooterBanner } from "@/componenets";
 import { client } from "@/componenets/lib/client";
 const Home = ({ products, bannerData }) => {
   return (
-    <>
+    <div className="index-container">
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
       <div className="products-heading">
         <h2>Best Selling Products</h2>
@@ -16,7 +16,7 @@ const Home = ({ products, bannerData }) => {
       </div>
 
       <FooterBanner footerBanner={bannerData && bannerData[0]} />
-    </>
+    </div>
   );
 };
 export const getServerSideProps = async () => {
