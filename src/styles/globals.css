@@ -654,7 +654,7 @@ span.text-red {
 }
 
 .index-container {
-  width: 100dvw;
+  width: 100vw;
   margin-left: 10px;
 }
 @media screen and (max-width: 800px) {
