@@ -637,8 +637,32 @@ span.text-red {
 .product-max-qty {
   margin-top: 10px;
 }
+.mobile-view {
+  display: none !important;
+}
 
+.mobile-links-wrapper {
+}
+.mobile-links-container {
+}
+.filter-button {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.dropdown {
+  border-bottom: 1px solid grey;
+}
 @media screen and (max-width: 800px) {
+  .logo {
+    padding-top: 0px;
+  }
+  .mobile-view {
+    display: block !important;
+  }
+  .desktop-view {
+    display: none !important;
+  }
   .hero-banner-container {
     height: 560px;
   }

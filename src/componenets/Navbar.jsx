@@ -3,15 +3,22 @@ import Link from "next/link";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Cart from "./Cart";
 import { useStateContext } from "@/context/StateContext";
+import { MobileNavbarLinks } from ".";
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   return (
     <div className="navbar-container">
       <p className="logo">
-        <Link href="/">RA Headphones</Link>
+        <Link href="/" className="desktop-view">
+          RA Headphones
+        </Link>
+        <Link href="/" className="mobile-view">
+          RA
+        </Link>
       </p>
-      <div className="navbar-filter-container">
+
+      <div className="navbar-filter-container desktop-view">
         <Link href="/type/Shirts">
           <p className="navbar-link">Shirts</p>
         </Link>
@@ -28,6 +35,8 @@ const Navbar = () => {
           <p className="navbar-link">Accessories</p>
         </Link>
       </div>
+      {/* THIS COMPONENT WONT SHOW ON DESKTOP VIEW */}
+      <MobileNavbarLinks />
       <button
         type="button"
         className="cart-icon"
