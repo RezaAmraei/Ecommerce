@@ -21,7 +21,7 @@ a {
   margin: auto;
   width: 100%;
   min-height: 80vh;
-  flex-grow: 100;
+  /* flex-grow: 100; */
 }
 .layout {
   padding: 8px;
@@ -654,7 +654,7 @@ span.text-red {
 }
 
 .index-container {
-  width: 100vw;
+  width: 100%;
   margin-left: 10px;
 }
 @media screen and (max-width: 800px) {
